@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.UUID;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -18,6 +19,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +31,8 @@ import pe.com.softlite.notifications.dto.ResponseResumen;
 
 @Service
 public class TramiteNotificaImp implements TramiteNotifica {
+	
+	public final static Logger LOGGER = LoggerFactory.getLogger(TramiteNotificaImp.class);
 	
 	@Value("${api.ws.sistradoc.listTramitesDelayed}")
 	private String apiUrlSistradocGetListDelayed;
@@ -58,7 +63,8 @@ public class TramiteNotificaImp implements TramiteNotifica {
 	
 	@Override
 	public String notifica() throws IOException, InterruptedException {
-		
+		String correlationId = UUID.randomUUID().toString();
+		LOGGER.info(correlationId + ":::: Proceso notificar. Inicio :::: '{}' ", TramiteNotificaImp.class.getName());
 		HttpClient httpClient = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder()
 			    .uri(URI.create(apiUrlSistradocGetListDelayed))
@@ -78,7 +84,7 @@ public class TramiteNotificaImp implements TramiteNotifica {
 			if(responseBody.contains("{")) {
 				sendMailWithGMail(Arrays.asList (listReporteResumen));
 				System.out.println("Tiene tramites");
-				return "Tiene tramites, se notificará a los involucrados";
+				return "Tiene tramites demorados, se notificará a los involucrados";
 			}else {
 				System.out.println("No tiene tramites");
 				return "No hay Tiene tramites retrasados";
@@ -87,6 +93,7 @@ public class TramiteNotificaImp implements TramiteNotifica {
 			
 			e.printStackTrace();
 		}
+		LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
 		return "Generó error";
 		
 	}

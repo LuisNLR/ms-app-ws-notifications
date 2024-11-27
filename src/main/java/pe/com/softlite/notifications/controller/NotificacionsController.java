@@ -16,8 +16,8 @@ public class NotificacionsController {
 	@Autowired
 	private TramiteNotifica tramiteNotifica;
 	
-	@GetMapping("/getNotificaciones")
-	public ResponseEntity<String> getNtoficaciones() {
+	@GetMapping("/sendNotifications")
+	public ResponseEntity<String> sendNotifications() {
 		try {
 			return new ResponseEntity<>(tramiteNotifica.notifica(), HttpStatus.OK);
 		} catch (Exception e) {
