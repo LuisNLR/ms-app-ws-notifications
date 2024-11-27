@@ -83,18 +83,21 @@ public class TramiteNotificaImp implements TramiteNotifica {
 			
 			if(responseBody.contains("{")) {
 				sendMailWithGMail(Arrays.asList (listReporteResumen));
-				System.out.println("Tiene tramites");
+				LOGGER.info(correlationId + ":::: Proceso notificar. Tiene tramites demorados, se notificará a los involucrados :::: '{}' ", TramiteNotificaImp.class.getName());
+				LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
 				return "Tiene tramites demorados, se notificará a los involucrados";
 			}else {
-				System.out.println("No tiene tramites");
-				return "No hay Tiene tramites retrasados";
+				LOGGER.info(correlationId + ":::: Proceso notificar. No hay Tiene tramites demorados :::: '{}' ", TramiteNotificaImp.class.getName());
+				LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
+				return "No hay Tiene tramites demorados";
 			}
 		} catch (IOException | InterruptedException e) {
-			
-			e.printStackTrace();
+			LOGGER.error(correlationId + ":::: Proceso notificar. Error en el servicio :::: '{}' ", e.getMessage());
+			LOGGER.error(e.getLocalizedMessage(), e);
+			LOGGER.error(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
+			return "ERROR. e.getMessage()";
 		}
-		LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
-		return "Generó error";
+		
 		
 	}
 	
