@@ -21,7 +21,7 @@ public class NotificacionsController {
 		try {
 			return new ResponseEntity<>(tramiteNotifica.notifica(), HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<>("Error al ejecutar el proceso", HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>("Error al ejecutar el proceso. " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

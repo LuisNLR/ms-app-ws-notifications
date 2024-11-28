@@ -83,22 +83,20 @@ public class TramiteNotificaImp implements TramiteNotifica {
 			
 			if(responseBody.contains("{")) {
 				sendMailWithGMail(Arrays.asList (listReporteResumen));
-				LOGGER.info(correlationId + ":::: Proceso notificar. Tiene tramites demorados, se notificará a los involucrados :::: '{}' ", TramiteNotificaImp.class.getName());
-				LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
-				return "Tiene tramites demorados, se notificará a los involucrados";
+				LOGGER.info(correlationId + ":::: Proceso notificar. Tiene tramites demorados, se notificará a las personas indicadas los resultados :::: '{}' ", responseBody);
+				LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", "FIN");
+				return "Tiene tramites demorados, se notificará a las personas indicadas";
 			}else {
-				LOGGER.info(correlationId + ":::: Proceso notificar. No hay Tiene tramites demorados :::: '{}' ", TramiteNotificaImp.class.getName());
-				LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
+				LOGGER.info(correlationId + ":::: Proceso notificar. No hay Tiene tramites demorados :::: '{}' ", 0);
+				LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", "FIN");
 				return "No hay Tiene tramites demorados";
 			}
 		} catch (IOException | InterruptedException e) {
-			LOGGER.error(correlationId + ":::: Proceso notificar. Error en el servicio :::: '{}' ", e.getMessage());
+			LOGGER.error(correlationId + ":::: Proceso notificar. Error en el servicio. :::: '{}' ", e.getMessage());
 			LOGGER.error(e.getLocalizedMessage(), e);
-			LOGGER.error(correlationId + ":::: Proceso notificar. Final :::: '{}' ", TramiteNotificaImp.class.getName());
+			LOGGER.info(correlationId + ":::: Proceso notificar. Final :::: '{}' ", "FIN");
 			return "ERROR. e.getMessage()";
 		}
-		
-		
 	}
 	
 	private void sendMailWithGMail(List<ResponseResumen> detailResumen) {
