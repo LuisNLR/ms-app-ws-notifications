@@ -22,9 +22,9 @@ public class ScheduledTask {
 	@Autowired
 	private NotificacionsController controller;
 	
-	private final long SEGUNDO = 1000;
-	private final long MINUTO = SEGUNDO * 60;
-	private final long HORA = MINUTO * 60;
+//	private final long SEGUNDO = 1000;
+//	private final long MINUTO = SEGUNDO * 60;
+//	private final long HORA = MINUTO * 60;
 
 //	@Scheduled(fixedDelay = MINUTO)
 	// Se ejecutará De lunes a vierntes (1-5), a horas 8 y 12, con 30 minutos.

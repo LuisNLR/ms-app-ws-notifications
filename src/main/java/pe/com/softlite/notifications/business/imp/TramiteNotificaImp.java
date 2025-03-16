@@ -144,10 +144,10 @@ public class TramiteNotificaImp implements TramiteNotifica {
 							+ "      <table class=\"demoTable\" style=\"height: 90px; border-style: dotted; border-color: #000000;\" border=\"1\"> \r\n"
 							+ "         <thead> \r\n"
 							+ "            <tr style=\"height: 18px;\"> \r\n"
-							+ "               <td style=\"height: 18px; width: 200.45px;\"><span style=\"color: #0000ff;\"><strong><span style=\"color: #c82828;\">TipoTramite</span></strong></span></td> \r\n"
-							+ "               <td style=\"height: 18px; width: 221.45px;\"><span style=\"color: #0000ff;\"><strong><span style=\"color: #c82828;\">Area</span></strong></span></td> \r\n"
-							+ "               <td style=\"height: 18px; width: 221.45px;\"><span style=\"color: #0000ff;\"><strong><span style=\"color: #c82828;\">Dependencias</span></strong></span></td> \r\n"
-							+ "               <td style=\"height: 18px; width: 120.95px;\"><span style=\"color: #c82828;\">Cant. Tr&aacute;mites</span></td> \r\n"
+							+ "               <td style=\"height: 18px; width: 210.45px;\"><span style=\"color: #0000ff;\"><strong><span style=\"color: #c82828;\">Area</span></strong></span></td> \r\n"
+							+ "               <td style=\"height: 18px; width: 210.45px;\"><span style=\"color: #0000ff;\"><strong><span style=\"color: #c82828;\">Dependencias</span></strong></span></td> \r\n"
+							+ "               <td style=\"height: 18px; width: 250.45px;\"><span style=\"color: #0000ff;\"><strong><span style=\"color: #c82828;\">TipoTramite</span></strong></span></td> \r\n"
+							+ "               <td style=\"height: 18px; width: 115.95px;\"><span style=\"color: #c82828;\">Cant. Tr&aacute;mites</span></td> \r\n"
 							+ "            </tr> \r\n"
 							+ "         </thead> \r\n"
 							+ "         <tbody> \r\n";
@@ -155,18 +155,18 @@ public class TramiteNotificaImp implements TramiteNotifica {
 							for (int i=0;i<detailResumen.size();i++) {
 								cuerpoHtml = cuerpoHtml    
 							+ "            <tr style=\"height: 18px;\"> \r\n"
-							+ "               <td style=\"height: 18px; width: 200.45px;\">"+detailResumen.get(i).getTipoTramite()+"</td> \r\n"
-							+ "               <td style=\"height: 18px; width: 221.45px;\">"+detailResumen.get(i).getArea()+"</td> \r\n"
-							+ "               <td style=\"height: 18px; width: 221.45px;\">"+detailResumen.get(i).getDependenciaActual()+"</td> \r\n"
-							+ "               <td style=\"height: 18px; width: 120.95px;\">"+detailResumen.get(i).getCantidadTramites()+"</td> \r\n"
+							+ "               <td style=\"height: 18px; width: 210.45px;\">"+detailResumen.get(i).getArea()+"</td> \r\n"
+							+ "               <td style=\"height: 18px; width: 210.45px;\">"+detailResumen.get(i).getDependenciaActual()+"</td> \r\n"
+							+ "               <td style=\"height: 18px; width: 250.45px;\">"+detailResumen.get(i).getTipoTramite()+"</td> \r\n"
+							+ "               <td style=\"height: 18px; width: 115.95px;\">"+detailResumen.get(i).getCantidadTramites()+"</td> \r\n"
 							+ "          </tr> \r\n";
 							}
 							
 							cuerpoHtml = cuerpoHtml  
 							+ "         </tbody> \r\n"
 							+ "      </table> \r\n"
-							+ "      <p>&nbsp;Para mayor detalle de los tr&aacute;mites se puede visualizar en la siguiente ruta.</p> \r\n"
-							+ "      <p><span style=\"color: #0000ff;\"><span style=\"text-decoration: underline;\">D:\\Tools\\Tramite.excel\\Input\\Deriver</span></span></p> \r\n"
+							+ "      <p>&nbsp;Para más información, ingresar al sistema de trámite documentario implementando dentro de la institución.</p> \r\n"
+							+ "      <p><span style=\"color: #0000ff;\"><span style=\"text-decoration: underline;\"></span></span></p> \r\n"
 							+ "   </body> \r\n"
 							+ "</html>";
 			
