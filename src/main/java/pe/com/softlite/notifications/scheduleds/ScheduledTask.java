@@ -28,7 +28,7 @@ public class ScheduledTask {
 
 //	@Scheduled(fixedDelay = MINUTO)
 	// Se ejecutará De lunes a vierntes (1-5), a horas 8 y 12, con 30 minutos.
-	@Scheduled(cron = "0 30 08,12 ? * 1-5")
+	@Scheduled(cron = "0 30 08 ? * 1-5")
 	public void taskNotification() {
 		String correlationId = UUID.randomUUID().toString();
 		LOGGER.info(correlationId + ":::: Proceso notificacion programada. Inicio :::: '{}' ", ScheduledTask.class.getName());
